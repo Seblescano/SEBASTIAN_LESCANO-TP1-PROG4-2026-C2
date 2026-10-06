@@ -7,7 +7,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "services/supabase.ts"  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]

@@ -1,0 +1,179 @@
+/* --- RESETEO DE BORDES --- */
+* {
+  border-radius: 0 !important;
+}
+
+.genshin-home {
+  min-height: 100vh;
+  background-color: #080c16;
+  background-image: 
+    radial-gradient(circle at 20% 40%, rgba(45, 80, 150, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  position: relative;
+  overflow: hidden;
+  color: #eaeaea;
+}
+
+.constelaciones-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg width="250" height="250" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1.5" fill="%23ffffff60"/><circle cx="180" cy="90" r="2" fill="%23ffffff80"/><line x1="30" y1="30" x2="180" y2="90" stroke="%23ffffff20" stroke-width="1"/><circle cx="100" cy="200" r="1.5" fill="%23ffffff50"/><line x1="180" y1="90" x2="100" y2="200" stroke="%23ffffff20" stroke-width="1"/><circle cx="220" cy="220" r="1" fill="%23ffffff40"/><line x1="100" y1="200" x2="220" y2="220" stroke="%23ffffff15" stroke-width="1"/></svg>');
+  background-size: 350px 350px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.genshin-title {
+  font-weight: 300;
+  letter-spacing: 15px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.4), 0 0 20px rgba(100, 150, 255, 0.3);
+  text-transform: uppercase;
+}
+
+.genshin-loading {
+  letter-spacing: 5px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+/* --- PANTALLA --- */
+.genshin-pantalla {
+  background: rgba(12, 18, 30, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid #5ab0ff;
+  box-shadow: 0 15px 30px rgba(90, 176, 255, 0.15);
+  height: 50px;
+  width: 80%;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.genshin-pantalla-text {
+  letter-spacing: 10px;
+  color: #5ab0ff;
+  font-weight: 300;
+  font-size: 0.9rem;
+  text-shadow: 0 0 8px rgba(90, 176, 255, 0.5);
+}
+
+
+.genshin-sala-container {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.genshin-fila {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 10px;
+  min-width: max-content; 
+  padding: 0 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.genshin-fila-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  width: 25px;
+  text-align: right;
+  letter-spacing: 2px;
+}
+
+.genshin-bloque {
+  display: flex;
+  gap: 6px; /* Separación entre butacas */
+}
+
+/* --- BUTACAS --- */
+.genshin-butaca {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.libre:hover {
+  background: rgba(220, 180, 80, 0.15);
+  border-color: rgba(220, 180, 80, 0.6);
+  color: #ffffff;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.seleccionada {
+  background: rgba(220, 180, 80, 0.8);
+  border-color: #dcb450;
+  color: #000000;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(220, 180, 80, 0.4);
+  transform: scale(1.1);
+}
+
+.ocupada {
+  background: rgba(220, 53, 69, 0.15);
+  border-color: rgba(220, 53, 69, 0.4);
+  color: rgba(220, 53, 69, 0.8);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.genshin-card {
+  background: rgba(12, 18, 30, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 4px 15px rgba(0,0,0,0.9);
+  backdrop-filter: blur(5px);
+}
+
+.genshin-btn {
+  background: transparent;
+  color: #dcb450;
+  border: 1px solid #dcb450;
+  padding: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.genshin-btn:not([disabled]):hover {
+  background: rgba(220, 180, 80, 0.1);
+  box-shadow: 0 0 15px rgba(220, 180, 80, 0.2);
+  text-shadow: 0 0 8px rgba(220, 180, 80, 0.6);
+  color: #ffffff;
+}
+
+.genshin-btn[disabled] {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+}
+
+/* --- SCROLLBAR PERSONALIZADA --- */
+::-webkit-scrollbar {
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(220, 180, 80, 0.5);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(220, 180, 80, 0.8);
+}

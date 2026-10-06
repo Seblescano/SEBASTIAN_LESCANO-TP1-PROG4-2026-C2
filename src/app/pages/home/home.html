@@ -1,1 +1,39 @@
-<p>home works!</p>
+<div class="genshin-home">
+  <div class="constelaciones-bg"></div>
+
+  <div class="container py-5 position-relative z-1">
+    <h2 class="genshin-title text-center mb-5">CARTELERA</h2>
+    
+    <!-- Nueva grilla CSS personalizada -->
+    <div class="genshin-grid">
+      @for (peli of peliculas(); track peli.id) {
+        <div class="genshin-card">
+          
+          @if (peli.imagen) {
+            <img [src]="peli.imagen" class="genshin-img" [alt]="peli.titulo">
+          } @else {
+            <div class="genshin-placeholder">Sin imagen</div>
+          }
+          
+          <div class="genshin-card-body">
+            <h5 class="genshin-card-title">{{ peli.titulo }}</h5>
+            
+            <div class="mt-auto">
+              <button routerLink="/butacas" class="genshin-btn w-100">
+                COMPRAR ENTRADA
+              </button>
+            </div>
+          </div>
+
+        </div>
+      } @empty {
+        <div class="text-center w-100 my-5" style="grid-column: 1 / -1;">
+          <div class="spinner-border text-light mb-3" role="status" style="border-radius: 50% !important;">
+            <span class="visually-hidden">Cargando estrellas...</span>
+          </div>
+          <p class="genshin-loading">Sintonizando constelaciones...</p>
+        </div>
+      }
+    </div>
+  </div>
+</div>

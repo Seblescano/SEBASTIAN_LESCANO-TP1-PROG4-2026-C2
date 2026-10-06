@@ -1,0 +1,37 @@
+<div class="container my-5 d-flex justify-content-center">
+  <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
+    <h2 class="text-center mb-4">Iniciar Sesión</h2>
+    <p class="text-center text-muted">Ingresá para acceder a tu 20% de descuento</p>
+    
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control"
+               [class.is-invalid]="f.email.invalid && f.email.touched">
+        @if (f.email.invalid && f.email.touched) {
+          <small class="text-danger">Ingresá un mail válido.</small>
+        }
+      </div>
+
+      <div class="mb-4">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" id="password" formControlName="password" class="form-control"
+               [class.is-invalid]="f.password.invalid && f.password.touched">
+        @if (f.password.invalid && f.password.touched) {
+          <small class="text-danger">La contraseña es obligatoria.</small>
+        }
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 fw-bold" [disabled]="loginForm.invalid">
+        Ingresar
+      </button>
+
+      <div class="text-center mt-3">
+        <span class="text-muted">¿No tenés cuenta? </span>
+        <a routerLink="/registro" class="text-decoration-none">Registrate acá</a>
+      </div>
+
+    </form>
+  </div>
+</div>

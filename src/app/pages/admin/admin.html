@@ -1,1 +1,58 @@
-<p>admin works!</p>
+<div class="container my-5">
+  <div class="row gap-4 justify-content-center">
+    
+    <div class="col-md-5">
+      <div class="card shadow p-4">
+        <h3 class="fw-bold mb-4">Programar Nueva Función</h3>
+        
+        <form [formGroup]="formulario" (ngSubmit)="guardarFuncion()">
+          
+          <div class="mb-3">
+            <label class="form-label fw-bold">Título de la Película</label>
+            <input type="text" class="form-control" formControlName="titulo" placeholder="Ej. El Señor de los Anillos">
+          </div>
+
+          <div class="row">
+            <div class="col-6 mb-3">
+              <label class="form-label fw-bold">Hora de Inicio</label>
+              <input type="time" class="form-control" formControlName="horaInicio">
+            </div>
+            <div class="col-6 mb-3">
+              <label class="form-label fw-bold">Hora de Fin</label>
+              <input type="time" class="form-control" formControlName="horaFin">
+            </div>
+          </div>
+
+          @if (errorHorario()) {
+            <div class="alert alert-danger py-2 small">
+              {{ errorHorario() }}
+            </div>
+          }
+
+          <button type="submit" class="btn btn-primary w-100 fw-bold mt-2" [disabled]="formulario.invalid">
+            Guardar Función
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <h4 class="fw-bold mb-3">Cartelera Programada</h4>
+      <ul class="list-group shadow-sm">
+        @for (func of funciones(); track func.titulo) {
+          <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+            <div>
+              <h6 class="mb-0 fw-bold">{{ func.titulo }}</h6>
+              <small class="text-muted">Inicio: {{ func.horaInicio }} | Fin: {{ func.horaFin }}</small>
+            </div>
+            <span class="badge bg-success rounded-pill">Programada</span>
+          </li>
+        }
+      </ul>
+      <p class="text-muted small mt-3">
+        <i class="bi bi-info-circle"></i> El sistema bloqueará automáticamente cualquier intento de programar películas con menos de 30 minutos de diferencia.
+      </p>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="genshin-home">
+  <!-- Capa de constelaciones de fondo -->
+  <div class="constelaciones-bg"></div>
+
+  @if (cargando()) {
+    <!-- Pantalla de carga estilo Genshin -->
+    <div class="d-flex flex-column justify-content-center align-items-center position-relative z-1" style="height: 100vh;">
+      <div class="spinner-border text-warning mb-4" style="width: 4rem; height: 4rem; border-radius: 50% !important;" role="status"></div>
+      <h3 class="genshin-loading">Cargando...</h3>
+    </div>
+  } @else {
+    <div class="container py-5 position-relative z-1 text-center">
+      <h2 class="genshin-title mb-5">Seleccion de butacas</h2>
+      
+      <div class="genshin-pantalla mx-auto mb-5">
+        <span class="genshin-pantalla-text">P A N T A L L A</span>
+      </div>
+
+      <div class="genshin-sala-container">
+        @for (fila of filas; track fila) {
+          <div class="genshin-fila">
+            
+            <span class="genshin-fila-label">{{ fila }}</span>
+
+            <div class="genshin-bloque">
+              @for (num of bloqueIzq; track num) {
+                <button class="genshin-butaca" [class]="getEstado(fila, num)" (click)="seleccionar(fila, num)">
+                  {{ num }}
+                </button>
+              }
+            </div>
+
+            <div class="genshin-bloque">
+              @for (num of bloqueCen; track num) {
+                <button class="genshin-butaca" [class]="getEstado(fila, num)" (click)="seleccionar(fila, num)">
+                  {{ num }}
+                </button>
+              }
+            </div>
+
+            <div class="genshin-bloque">
+              @for (num of bloqueDer; track num) {
+                <button class="genshin-butaca" [class]="getEstado(fila, num)" (click)="seleccionar(fila, num)">
+                  {{ num }}
+                </button>
+              }
+            </div>
+            
+          </div>
+        }
+      </div>
+
+      <div class="genshin-card p-4 mx-auto mt-4" style="max-width: 400px;">
+        <p class="fs-6 mb-4" style="letter-spacing: 2px; color: #eaeaea;">
+          ASIENTOS ELEGIDOS: 
+          <strong style="color: #dcb450; font-size: 1.2rem;">{{ asientosSeleccionados().length }}</strong>
+        </p>
+        <button class="genshin-btn w-100" [disabled]="asientosSeleccionados().length === 0" (click)="irAlPago()">
+          CONTINUAR AL PAGO
+        </button>
+      </div>
+    </div>
+  }
+</div>

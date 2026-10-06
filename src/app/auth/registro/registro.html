@@ -1,0 +1,91 @@
+<div class="container my-5 d-flex justify-content-center">
+  <div class="card shadow p-4" style="max-width: 600px; width: 100%;">
+    <h2 class="text-center mb-4">Registro de Usuario</h2>
+    <p class="text-center text-muted">¡Registrate y obtené un 20% de descuento en tu primera compra!</p>
+    
+    <form [formGroup]="registroForm" (ngSubmit)="onRegistrar()">
+      
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" id="nombre" formControlName="nombre" class="form-control" 
+                 [class.is-invalid]="f.nombre.invalid && f.nombre.touched">
+          @if (f.nombre.invalid && f.nombre.touched) {
+            <small class="text-danger">El nombre es obligatorio.</small>
+          }
+        </div>
+        <div class="col-md-6 mt-3 mt-md-0">
+          <label for="apellido" class="form-label">Apellido</label>
+          <input type="text" id="apellido" formControlName="apellido" class="form-control"
+                 [class.is-invalid]="f.apellido.invalid && f.apellido.touched">
+          @if (f.apellido.invalid && f.apellido.touched) {
+            <small class="text-danger">El apellido es obligatorio.</small>
+          }
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" formControlName="email" class="form-control"
+                 [class.is-invalid]="f.email.invalid && f.email.touched">
+          @if (f.email.invalid && f.email.touched) {
+            <small class="text-danger">Ingresá un mail válido.</small>
+          }
+        </div>
+        <div class="col-md-6 mt-3 mt-md-0">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" id="password" formControlName="password" class="form-control"
+                 [class.is-invalid]="f.password.invalid && f.password.touched">
+          @if (f.password.invalid && f.password.touched) {
+            <small class="text-danger">Mínimo 6 caracteres.</small>
+          }
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="fechaNacimiento" class="form-label">Nacimiento</label>
+          <input type="date" id="fechaNacimiento" formControlName="fechaNacimiento" class="form-control"
+                 [class.is-invalid]="f.fechaNacimiento.invalid && f.fechaNacimiento.touched">
+        </div>
+        <div class="col-md-4 mt-3 mt-md-0">
+          <label for="tipoSangre" class="form-label">Grupo Sanguíneo</label>
+          <select id="tipoSangre" formControlName="tipoSangre" class="form-select"
+                  [class.is-invalid]="f.tipoSangre.invalid && f.tipoSangre.touched">
+            <option value="">Elegir...</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+          </select>
+        </div>
+        <div class="col-md-4 mt-3 mt-md-0">
+          <label for="colorOjos" class="form-label">Color de Ojos</label>
+          <input type="text" id="colorOjos" formControlName="colorOjos" class="form-control"
+                 [class.is-invalid]="f.colorOjos.invalid && f.colorOjos.touched">
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="diasVacaciones" class="form-label">Días de vacaciones por año</label>
+        <input type="number" id="diasVacaciones" formControlName="diasVacaciones" class="form-control"
+               [class.is-invalid]="f.diasVacaciones.invalid && f.diasVacaciones.touched">
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 fw-bold" [disabled]="registroForm.invalid">
+        Crear Cuenta
+      </button>
+
+      <div class="text-center mt-3">
+        <span class="text-muted">¿Ya tenés cuenta? </span>
+        <a routerLink="/auth/login" class="text-decoration-none">Iniciá sesión acá</a>
+      </div>
+
+    </form>
+  </div>
+</div>

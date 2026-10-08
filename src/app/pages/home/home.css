@@ -1,10 +1,8 @@
-/* --- RESETEO DE BORDES --- */
-/* Aniquilamos cualquier borde redondo que intente meter Bootstrap */
+
 * {
   border-radius: 0 !important;
 }
 
-/* --- FONDO PRINCIPAL ESPACIAL --- */
 .genshin-home {
   min-height: 100vh;
   background-color: #080c16; /* Azul súper oscuro casi negro */
@@ -16,14 +14,13 @@
   color: #eaeaea;
 }
 
-/* Patrón SVG de constelaciones inyectado directo en el CSS */
 .constelaciones-bg {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background-image: url('data:image/svg+xml;utf8,<svg width="250" height="250" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1.5" fill="%23ffffff60"/><circle cx="180" cy="90" r="2" fill="%23ffffff80"/><line x1="30" y1="30" x2="180" y2="90" stroke="%23ffffff20" stroke-width="1"/><circle cx="100" cy="200" r="1.5" fill="%23ffffff50"/><line x1="180" y1="90" x2="100" y2="200" stroke="%23ffffff20" stroke-width="1"/><circle cx="220" cy="220" r="1" fill="%23ffffff40"/><line x1="100" y1="200" x2="220" y2="220" stroke="%23ffffff15" stroke-width="1"/></svg>');
   background-size: 350px 350px;
   opacity: 0.7;
-  pointer-events: none; /* Para que no moleste al hacer clic */
+  pointer-events: none; 
 }
 
 /* --- TÍTULO --- */
@@ -46,7 +43,7 @@
   align-items: stretch;
 }
 
-/* --- TARJETAS AFILADAS Y VIDRIOSAS --- */
+/* --- TARJETAS --- */
 .genshin-card {
   background: rgba(12, 18, 30, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -66,7 +63,7 @@
 .genshin-img {
   width: 100%;
   height: 420px;
-  object-fit: cover; /* Evita que la imagen se estire o deforme */
+  object-fit: cover; 
   object-position: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   filter: contrast(1.1) brightness(0.9);
@@ -89,10 +86,10 @@
   text-transform: uppercase;
 }
 
-/* --- BOTÓN DORADO --- */
+/* --- BOTÓN --- */
 .genshin-btn {
   background: transparent;
-  color: #dcb450; /* Dorado Genshin */
+  color: #dcb450; 
   border: 1px solid #dcb450;
   padding: 12px;
   font-size: 0.85rem;
